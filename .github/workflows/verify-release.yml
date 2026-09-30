@@ -6,6 +6,11 @@ permissions:
   contents: read
 jobs:
   download-and-verify:
+    # Draft releases require push access to be visible. Never give this token to
+    # a fork or an untrusted contributor's PR; the job performs no remote writes.
+    if: github.actor == github.repository_owner && (github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository)
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
