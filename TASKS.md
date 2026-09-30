@@ -1,9 +1,9 @@
 # Artifact publication ledger
 
-- [~] ART-001 Inspect student-v3 bundle, verify model hash and pinned upstream licence; review the exact text attachments for secrets/private data.
-- [~] ART-002 Document synthetic backend use, PWA format incompatibility and future Android/iOS qualification without connecting the model.
-- [ ] ART-003 Create private dede-models repo and publish student-v3-experimental pre-release with an explicit unqualified warning and no assets in Git.
-- [ ] ART-004 Download every published asset and compare its SHA-256/size against the original release inventory; report evidence.
+- [x] ART-001 Model SHA-256 independently verified, pinned upstream Apache licence retrieved, text attachments manually reviewed and pattern-scanned; training/admission receipt hash chain verified. GGUF header metadata is consistent with Qwen3 1.7B. This does not prove absence of memorized information in weights.
+- [x] ART-002 Backend synthetic-use, PWA incompatibility and Android/iOS qualification instructions merged via PR #1; Maku Mazakpe credited. No model connected or executed.
+- [x] ART-003 Private repo and 10-asset `student-v3-experimental` pre-release published after ART-004 passed. PR #1 and merged-main checks passed; original model/document bytes remain separate release assets, not Git blobs. Release is explicitly unqualified, synthetic development only.
+- [x] ART-004 All nine small assets downloaded on Mac and matched original hashes. Large-model Mac stream was intentionally stopped because throughput implied about 40 minutes; its partial-stream rejection is not a model corruption finding. Full 10-asset read-back passed on an isolated GitHub runner: [run 36786504661](https://github.com/ma-za-kpe/dede-models/actions/runs/36786504661), download-and-verify 41 seconds. The runner compared every actual downloaded file against the original repository checksum inventory, compared the downloaded checksum file itself, checked the model's exact 1,107,408,640 bytes and counted exactly 10 assets. This is artifact integrity, not model qualification.
 - [ ] ART-005 Verify independent R2 backup; not performed by this GitHub publication task.
 - [ ] ART-006 Shared law-conformance suite, signed manifests, compatible browser/mobile export, full voice/stateful evaluations and physical-device qualification before any real-person use.
 

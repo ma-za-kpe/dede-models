@@ -1,0 +1,33 @@
+name: Full release read-back
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  download-and-verify:
+    # Draft releases require push access to be visible. Never give this token to
+    # a fork or an untrusted contributor's PR; the job performs no remote writes.
+    if: github.actor == github.repository_owner && (github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository)
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Download complete private release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/student-v3-readback"
+          gh release download student-v3-experimental --repo "$GITHUB_REPOSITORY" --dir "$RUNNER_TEMP/student-v3-readback"
+      - name: Compare downloaded bytes to repository's original checksums
+        run: |
+          set -euo pipefail
+          cmp SHA256SUMS "$RUNNER_TEMP/student-v3-readback/SHA256SUMS"
+          cd "$RUNNER_TEMP/student-v3-readback"
+          sha256sum --check "$GITHUB_WORKSPACE/SHA256SUMS"
+          test "$(stat -c %s student-q4_k_m.gguf)" = 1107408640
+          test "$(find . -maxdepth 1 -type f | wc -l)" = 10
+          printf 'Full 10-asset read-back verified against source inventory. Model remains unqualified.\n' >> "$GITHUB_STEP_SUMMARY"
