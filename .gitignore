@@ -1,0 +1,7 @@
+*.gguf
+*.safetensors
+*.onnx
+.env*
+.firebase
+downloads/
+node_modules/

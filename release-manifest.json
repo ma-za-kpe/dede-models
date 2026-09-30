@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "release": "student-v3-experimental",
+  "visibility": "private",
+  "warning": "Unqualified—synthetic development testing only.",
+  "production_qualified": false,
+  "signed_manifest": false,
+  "privacy_review": "Text attachments pattern-scanned and manually reviewed; synthetic provenance reported by source receipts. No proof of absence of memorized information in weights.",
+  "artifacts": [
+    {
+      "name": "student-q4_k_m.gguf",
+      "size_bytes": 1107408640,
+      "sha256": "c830a1608b31ce0f1ae2ac8bfc063fbae9bbf75bec5cd3216daa876a6ba78dbf"
+    },
+    {
+      "name": "build-receipt.json",
+      "size_bytes": 19980,
+      "sha256": "01b868ea10993ec601db32df7760156beca23925ccf8a6a28ce45a6b30c13898"
+    },
+    {
+      "name": "training-receipt.json",
+      "size_bytes": 17201,
+      "sha256": "197f58436b068950aa2fa2c80661d25a781f2a3c87715203f676ff5421572274"
+    },
+    {
+      "name": "review-v3.json",
+      "size_bytes": 10624,
+      "sha256": "6c143278865ef6b94a363b2be78d41b2f6d42194f817830e01e420f8252e4109"
+    },
+    {
+      "name": "eval-student-v3.jsonl",
+      "size_bytes": 24600,
+      "sha256": "a085726d324023d5941db3683be9c835a9431705dda43f65c9761596584b1369"
+    },
+    {
+      "name": "README.md",
+      "size_bytes": 8592,
+      "sha256": "44c7f89524a760ec4d271e8c08ce752fc8749364ebceb8443e9f439fa1c5df3e"
+    },
+    {
+      "name": "LICENSE",
+      "size_bytes": 11343,
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "name": "ATTRIBUTION.md",
+      "size_bytes": 1424,
+      "sha256": "2f2ce656047531e646aeba264da67b4065e6c91f159d2724f8545ce461606fad"
+    }
+  ]
+}
